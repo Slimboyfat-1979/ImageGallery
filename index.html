@@ -77,7 +77,7 @@
           <!-- An image goes here -->
           <img :src="photo.url" alt="" />
           <button
-            @click="photo.isFavourite = !photo.isFavourite"
+            @click="addTofavorites(photo)"
             :class="['favorite-button', {active: photo.isFavourite}]"
           >
             ★
@@ -114,11 +114,17 @@
             photos.value.splice(idx, 1);
           };
 
+          const addTofavorites = function(photo) {
+            console.log(photo)
+            photo.isFavourite = !photo.isFavourite
+          } 
+
           return {
             addPhoto,
             photos,
             newPhotoUrl,
             removePhoto,
+            addTofavorites
           };
         },
       };
